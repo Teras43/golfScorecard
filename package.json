@@ -1,0 +1,20 @@
+{
+  "name": "golfscorecard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch styles/styles.scss:styles/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teras43/golfScorecard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teras43/golfScorecard/issues"
+  },
+  "homepage": "https://github.com/Teras43/golfScorecard#readme"
+}
