@@ -10,15 +10,21 @@ body {
   padding-right: 0;
 }
 
+.topContainer {
+  display: flex;
+  width: 100vw;
+}
+
 .header {
   font-size: 32px;
+  width: 100vw;
 }
 
 .bodyContainer {
   display: flex;
   flex-direction: column;
-  height: 80vh;
-  width: 80vw;
+  height: 70vh;
+  width: 100vw;
 }
 .bodyContainer .bodyTopText {
   font-size: 22px;
@@ -29,21 +35,27 @@ body {
 }
 .bodyContainer .courses {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 90%;
-  width: 100vw;
-  font-size: 18px;
+  flex-direction: row;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
 }
-.bodyContainer .players {
+.bodyContainer .bottomSection {
   display: flex;
-  height: 10%;
   flex-direction: column;
-  margin-left: 100px;
+  align-items: center;
 }
-.bodyContainer .buttonDiv {
-  margin-left: 90px;
+.bodyContainer .bottomSection .addPlayers {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.bodyContainer .bottomSection .addPlayers .playerName {
+  margin-left: 15px;
+}
+.bodyContainer .bottomSection .startBtn {
+  width: 180px;
 }
 
 /*# sourceMappingURL=styles.css.map */
