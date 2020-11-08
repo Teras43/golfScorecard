@@ -1,8 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+.pageContainer {
   height: 100vh;
-  width: 100vw;
 }
 
 .container-fluid {
@@ -12,7 +14,6 @@ body {
 
 .topContainer {
   display: flex;
-  width: 100vw;
 }
 
 .header {
@@ -23,8 +24,7 @@ body {
 .bodyContainer {
   display: flex;
   flex-direction: column;
-  height: 70vh;
-  width: 100vw;
+  height: 100%;
 }
 .bodyContainer .bodyTopText {
   font-size: 22px;
@@ -36,26 +36,25 @@ body {
 .bodyContainer .courses {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  height: auto;
   margin: 0;
   font-size: 20px;
   text-align: center;
 }
-.bodyContainer .bottomSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.bodyContainer .courses .courseTxt {
+  font-style: italic;
 }
-.bodyContainer .bottomSection .addPlayers {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  margin-bottom: 8px;
+.bodyContainer .courses .courseImg {
+  height: 150px;
+  width: 150px;
+  object-fit: fill;
+  border: 1px solid black;
 }
-.bodyContainer .bottomSection .addPlayers .playerName {
-  margin-left: 15px;
-}
-.bodyContainer .bottomSection .startBtn {
-  width: 180px;
+.bodyContainer .active {
+  border: 1px solid blue;
+  background-color: lightblue;
+  border-radius: 3px;
 }
 
 /*# sourceMappingURL=styles.css.map */

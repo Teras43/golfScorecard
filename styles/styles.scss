@@ -1,8 +1,11 @@
 body {
     margin: 0;
     padding: 0;
+
+}
+
+.pageContainer {
     height: 100vh;
-    width: 100vw;
 }
 
 .container-fluid {
@@ -10,9 +13,9 @@ body {
     padding-right: 0;
 }
 
+
 .topContainer {
     display: flex;
-    width: 100vw;
 }
 
 .header {
@@ -23,8 +26,7 @@ body {
 .bodyContainer {
     display: flex;
     flex-direction: column;
-    height: 70vh;
-    width: 100vw;
+    height: 100%;
 
     .bodyTopText {
         font-size: 22px;
@@ -37,29 +39,48 @@ body {
     .courses {
         display: flex;
         flex-direction: row;
+        align-items: flex-start;
+        height: auto;
         margin: 0;
         font-size: 20px;
         text-align: center;
+
+        .courseTxt {
+            font-style: italic;
+        }
+
+        .courseImg {
+            height: 150px;
+            width: 150px;
+            object-fit: fill;
+            border: 1px solid black;
+        }
     }
 
-    .bottomSection {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .active {
+        border: 1px solid blue;
+        background-color: lightblue;
+        border-radius: 3px;
+    }
 
-        .addPlayers{
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            margin-bottom: 8px;
+    // .bottomSection {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+
+    //     .addPlayers{
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: baseline;
+    //         margin-bottom: 8px;
         
-            .playerName {
-                margin-left: 15px;
-            }
-        }
+    //         .playerName {
+    //             margin-left: 15px;
+    //         }
+    //     }
 
-        .startBtn {
-            width: 180px;
-        }
-    }
+    //     .startBtn {
+    //         width: 180px;
+    //     }
+    // }
 }
