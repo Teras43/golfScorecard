@@ -1,13 +1,13 @@
-function addProTeeYardage() {
-    let total = 0;
-    singleCourse.data.holes.forEach(i => {
-        if(singleCourse.data.holes[i].includes(teeBoxes[0])) {
-            total += singleCourse.data.holes[i].teeBoxes[0].yards;
-        };
+function addTeeYardage() {
+    let proTotal = 0;
+    let champTotal = 0;
+    let menTotal = 0;
+    let womenTotal = 0;
+    singleCourse.data.holes.forEach(val => {
+            proTotal += val.teeBoxes[0].yards;
+            champTotal += val.teeBoxes[1].yards;
+            menTotal += val.teeBoxes[2].yards;
+            womenTotal += val.teeBoxes[3].yards;
     });
-    if (total !== 0) {
-        return console.log(total);
-    } else {
-        return console.log("Not working");
-    }
+    return {proTotal, champTotal, menTotal, womenTotal};
 }
