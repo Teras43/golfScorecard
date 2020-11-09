@@ -2,14 +2,15 @@ let golfAPI = "https://golf-courses-api.herokuapp.com/courses";
 const courseContainer = document.getElementById('courseContainer')
 const bodyContainer = document.getElementById('bodyContainer');
 let allCourses;
+let singleCourse;
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = () => {
     if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        allCourses = JSON.parse(xmlhttp.responseText)
+        allCourses = JSON.parse(xmlhttp.responseText);
 
         allCourses.courses.forEach((course, index) => {
-            console.log(index, course)
+            // console.log(index, course)
             courseContainer.insertAdjacentHTML("beforeend", `
                  <div class="courseNode col-sm-4" id="${course.id}" onclick="selectCourse(${course.id})">
                     <img class="courseImg" src="${course.image}" />
@@ -26,16 +27,21 @@ xmlhttp.send();
 let xmlhttp2 = new XMLHttpRequest();
 xmlhttp2.onreadystatechange = () => {
     if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
-        allCourses.courses.forEach((course, index) => {
+        singleCourse = JSON.parse(xmlhttp2.responseText);
+        console.log(singleCourse);
             bodyContainer.insertAdjacentElement("beforeend", `
                 <div id="pageContainer2">
-                    <div>Course Information</div>
-                    <div>Name: ${course.name}${course.city}${course.state_or_province}</div>
-                    <div>Holes: ${course.hole_count}</div>
-                    <div>Tee Types: ${course.holes[1].tee_type} Yards: ${course.holes[1].yards}</div>
+                    <div class="header text-center">Course Information</div>
+                    <div>Name: ${singleCourse.data.name}${singleCourse.data.city}${singleCourse.data.stateOrProvince}</div>
+                    <div>Holes: ${singleCourse.data.holeCount}</div>
+                    <div>Tee Types & Yards:
+                        <div>Pro - </div>
+                        <div>Champion - </div>
+                        <div>Men - </div>
+                        <div>Women - </div>
+                    </div>
                 </div>
             `)
-        })
     }
 }
 
@@ -55,7 +61,10 @@ function selectCourse(id) {
     [...document.getElementsByClassName('active')].forEach(element => {
         element.classList.remove('active');
     });
-    xmlhttp2.open("GET", golfAPI, true);
+    xmlhttp2.open("GET", golfAPI + '/' + id, true);
     xmlhttp2.setRequestHeader('ContentType', 'application/json');
     xmlhttp2.send();
+    if (xmlhttp2.response) {
+        addProTeeYardage();
+    }
 }
