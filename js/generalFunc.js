@@ -5,7 +5,7 @@ function saveData() {
 function loadData() {
     const loadedData = localStorage.getItem('savedData')
     if (loadedData) {
-        JSON.parse('savedData');
+        JSON.parse(loadedData);
     } else {
         return;
     }
@@ -34,21 +34,37 @@ function selectCourse(id) {
     xmlhttp2.open("GET", golfAPI + '/' + id, true);
     xmlhttp2.setRequestHeader('ContentType', 'application/json');
     xmlhttp2.send();
+    // loadData();
 };
 
 function addPlayers(event) {
     let nameInput = document.getElementById('nameInput');
     let playerNames = document.getElementById('players');
-    if(event.type === "keydown" && event.keyCode !== 13) return;
+    if(event.type === 'keydown' && event.keyCode !== 13) return;
     if(nameInput.value === null || nameInput.value === undefined) return;
+    if (savedData.hasOwnProperty(nameInput.value.toLowerCase())) {
+        document.getElementById('errorMsgName').innerHTML = 'Player already exists!';
+        nameInput.value = '';
+        setTimeout(() => {
+            document.getElementById('errorMsgName').innerHTML = '';
+        }, 1800);
+        return;
+    } else if (Object.keys(savedData).length === 4) {
+        document.getElementById('errorMsgName').innerHTML = 'Player Roster is Full!';
+        setTimeout(() => {
+            document.getElementById('errorMsgName').innerHTML = '';
+        }, 1800);
+        nameInput.value = '';
+        return
+    }
     if (nameInput.value === '') {
         return
     } else {
-        playerNames.insertAdjacentHTML("beforeend", `
+        playerNames.insertAdjacentHTML('beforeend', `
             <div>${nameInput.value}</div>
         `)
     }
-    savedData[nameInput.value] = {};
+    savedData[nameInput.value.toLowerCase()] = {};
     nameInput.value = '';
-    saveData();
+    // saveData();
 };

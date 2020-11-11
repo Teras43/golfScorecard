@@ -84,4 +84,10 @@ body {
   display: flex;
 }
 
+.gridInputs {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
