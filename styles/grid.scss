@@ -1,0 +1,561 @@
+.bodyContainer3 {
+
+
+    .golfGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 20px 20px 20px 20px 20px 20px 20px 20px
+                            20px 20px 20px 20px 20px 20px 20px 20px 
+                            20px 20px 20px 20px 20px 20px 20px;
+        grid-template-areas:
+            "holes par handicap p1 p2 p3 p4 yards"
+            "hole1 par1 handicap1 p1h1 p2h1 p3h1 p4h1 yardsH1"
+            "hole2 par2 handicap2 p1h2 p2h2 p3h2 p4h2 yardsH2"
+            "hole3 par3 handicap3 p1h3 p2h3 p3h3 p4h3 yardsH3"
+            "hole4 par4 handicap4 p1h4 p2h4 p3h4 p4h4 yardsH4"
+            "hole5 par5 handicap5 p1h5 p2h5 p3h5 p4h5 yardsH5"
+            "hole6 par6 handicap6 p1h6 p2h6 p3h6 p4h6 yardsH6"
+            "hole7 par7 handicap7 p1h7 p2h7 p3h7 p4h7 yardsH7"
+            "hole8 par8 handicap8 p1h8 p2h8 p3h8 p4h8 yardsH8"
+            "hole9 par9 handicap9 p1h9 p2h9 p3h9 p4h9 yardsH9"
+            "out . . outP1 outP2 outP3 outP4 ."
+            "hole10 par10 handicap10 p1h10 p2h10 p3h10 p4h10 yardsH10"
+            "hole11 par11 handicap11 p1h11 p2h11 p3h11 p4h11 yardsH11"
+            "hole12 par12 handicap12 p1h12 p2h12 p3h12 p4h12 yardsH12"
+            "hole13 par13 handicap13 p1h13 p2h13 p3h13 p4h13 yardsH13"
+            "hole14 par14 handicap14 p1h14 p2h14 p3h14 p4h14 yardsH14"
+            "hole15 par15 handicap15 p1h15 p2h15 p3h15 p4h15 yardsH15"
+            "hole16 par16 handicap16 p1h16 p2h16 p3h16 p4h16 yardsH16"
+            "hole17 par17 handicap17 p1h17 p2h17 p3h17 p4h17 yardsH17"
+            "hole18 par18 handicap18 p1h18 p2h18 p3h18 p4h18 yardsH18"
+            "in . . inP1 inP2 inP3 inP4 ."
+            "total . . totalP1 totalP2 totalP3 totalP4 totalYards";
+    }
+
+    .holesGrid {
+        grid-area: holes;
+    }
+
+    .parGrid {
+        grid-area: par;
+    }
+
+    .handicapGrid {
+        grid-area: handicap;
+    }
+
+    .playerOne {
+        grid-area: p1;
+    }
+    .playerTwo {
+        grid-area: p2;
+    }
+    .playerThree {
+        grid-area: p3;
+    }
+    .playerFour {
+        grid-area: p4
+    }
+
+    .yardsGrid {
+        grid-area: yards;
+    }
+
+    .hole1 {
+        grid-area: hole1;
+    }
+    .hole2 {
+        grid-area: hole2;
+    }
+    .hole3 {
+        grid-area: hole3;
+    }
+    .hole4 {
+        grid-area: hole4;
+    }
+    .hole5 {
+        grid-area: hole5;
+    }
+    .hole6 {
+        grid-area: hole6;
+    }
+    .hole7 {
+        grid-area: hole7;
+    }
+    .hole8 {
+        grid-area: hole8;
+    }
+    .hole9 {
+        grid-area: hole9;
+    }
+
+    .outScore {
+        grid-area: out;
+    }
+    .outScoreP1 {
+        grid-area: outP1;
+    }
+    .outScoreP2 {
+        grid-area: outP2;
+    }
+    .outScoreP3 {
+        grid-area: outP3;
+    }
+    .outScoreP4 {
+        grid-area: outP4;
+    }
+
+    .hole10 {
+        grid-area: hole10;
+    }
+    .hole11 {
+        grid-area: hole11;
+    }
+    .hole12 {
+        grid-area: hole12;
+    }
+    .hole13 {
+        grid-area: hole13;
+    }
+    .hole14 {
+        grid-area: hole14;
+    }
+    .hole15 {
+        grid-area: hole15;
+    }
+    .hole16 {
+        grid-area: hole16;
+    }
+    .hole17 {
+        grid-area: hole17;
+    }
+    .hole18 {
+        grid-area: hole18;
+    }
+
+    .inScore {
+        grid-area: in;
+    }
+    .inScoreP1 {
+        grid-area: inP1;
+    }
+    .inScoreP2 {
+        grid-area: inP2;
+    }
+    .inScoreP3 {
+        grid-area: inP3;
+    }
+    .inScoreP4 {
+        grid-area: inP4;
+    }
+
+    .allTotals {
+        grid-area: total;
+    }
+    .totalsP1 {
+        grid-area: totalP1;
+    }
+    .totalsP2 {
+        grid-area: totalP2;
+    }
+    .totalsP3 {
+        grid-area: totalP3;
+    }
+    .totalsP4 {
+        grid-area: totalP4;
+    }
+    .totalsYards {
+        grid-area: totalYards;
+    }
+
+    .par1 {
+        grid-area: par1;
+    }
+    .par2 {
+        grid-area: par2;
+    }
+    .par3 {
+        grid-area: par3;
+    }
+    .par4 {
+        grid-area: par4;
+    }
+    .par5 {
+        grid-area: par5;
+    }
+    .par6 {
+        grid-area: par6;
+    }
+    .par7 {
+        grid-area: par7;
+    }
+    .par8 {
+        grid-area: par8;
+    }
+    .par9 {
+        grid-area: par9;
+    }
+    .par10 {
+        grid-area: par10;
+    }
+    .par11 {
+        grid-area: par11;
+    }
+    .par12 {
+        grid-area: par12;
+    }
+    .par13 {
+        grid-area: par13;
+    }
+    .par14 {
+        grid-area: par14;
+    }
+    .par15 {
+        grid-area: par15;
+    }
+    .par16 {
+        grid-area: par16;
+    }
+    .par17 {
+        grid-area: par17;
+    }
+    .par18 {
+        grid-area: par18;
+    }
+
+    .handicap1 {
+        grid-area: handicap1;
+    }
+    .handicap2 {
+        grid-area: handicap2;
+    }
+    .handicap3 {
+        grid-area: handicap3;
+    }
+    .handicap4 {
+        grid-area: handicap4;
+    }
+    .handicap5 {
+        grid-area: handicap5;
+    }
+    .handicap6 {
+        grid-area: handicap6;
+    }
+    .handicap7 {
+        grid-area: handicap7;
+    }
+    .handicap8 {
+        grid-area: handicap8;
+    }
+    .handicap9 {
+        grid-area: handicap9;
+    }
+    .handicap10 {
+        grid-area: handicap10;
+    }
+    .handicap11 {
+        grid-area: handicap11;
+    }
+    .handicap12 {
+        grid-area: handicap12;
+    }
+    .handicap13 {
+        grid-area: handicap13;
+    }
+    .handicap14 {
+        grid-area: handicap14;
+    }
+    .handicap15 {
+        grid-area: handicap15;
+    }
+    .handicap16 {
+        grid-area: handicap16;
+    }
+    .handicap17 {
+        grid-area: handicap17;
+    }
+    .handicap18 {
+        grid-area: handicap18;
+    }
+
+    .player1Hole1 {
+        grid-area: p1h1;
+    }
+    .player1Hole2 {
+        grid-area: p1h2;
+    }
+    .player1Hole3 {
+        grid-area: p1h3;
+    }
+    .player1Hole4 {
+        grid-area: p1h4;
+    }
+    .player1Hole5 {
+        grid-area: p1h5;
+    }
+    .player1Hole6 {
+        grid-area: p1h6;
+    }
+    .player1Hole7 {
+        grid-area: p1h7;
+    }
+    .player1Hole8 {
+        grid-area: p1h8;
+    }
+    .player1Hole9 {
+        grid-area: p1h9;
+    }
+    .player1Hole10 {
+        grid-area: p1h10;
+    }
+    .player1Hole11 {
+        grid-area: p1h11;
+    }
+    .player1Hole12 {
+        grid-area: p1h12;
+    }
+    .player1Hole13 {
+        grid-area: p1h13;
+    }
+    .player1Hole14 {
+        grid-area: p1h14;
+    }
+    .player1Hole15 {
+        grid-area: p1h15;
+    }
+    .player1Hole16 {
+        grid-area: p1h16;
+    }
+    .player1Hole17 {
+        grid-area: p1h17;
+    }
+    .player1Hole18 {
+        grid-area: p1h18;
+    }
+
+    .player2Hole1 {
+        grid-area: p1h1;
+    }
+    .player2Hole2 {
+        grid-area: p1h2;
+    }
+    .player2Hole3 {
+        grid-area: p1h3;
+    }
+    .player2Hole4 {
+        grid-area: p1h4;
+    }
+    .player2Hole5 {
+        grid-area: p1h5;
+    }
+    .player2Hole6 {
+        grid-area: p1h6;
+    }
+    .player2Hole7 {
+        grid-area: p1h7;
+    }
+    .player2Hole8 {
+        grid-area: p1h8;
+    }
+    .player2Hole9 {
+        grid-area: p1h9;
+    }
+    .player2Hole10 {
+        grid-area: p1h10;
+    }
+    .player2Hole11 {
+        grid-area: p1h11;
+    }
+    .player2Hole12 {
+        grid-area: p1h12;
+    }
+    .player2Hole13 {
+        grid-area: p1h13;
+    }
+    .player2Hole14 {
+        grid-area: p1h14;
+    }
+    .player2Hole15 {
+        grid-area: p1h15;
+    }
+    .player2Hole16 {
+        grid-area: p1h16;
+    }
+    .player2Hole17 {
+        grid-area: p1h17;
+    }
+    .player2Hole18 {
+        grid-area: p1h18;
+    }
+
+    .player3Hole1 {
+        grid-area: p1h1;
+    }
+    .player3Hole2 {
+        grid-area: p1h2;
+    }
+    .player3Hole3 {
+        grid-area: p1h3;
+    }
+    .player3Hole4 {
+        grid-area: p1h4;
+    }
+    .player3Hole5 {
+        grid-area: p1h5;
+    }
+    .player3Hole6 {
+        grid-area: p1h6;
+    }
+    .player3Hole7 {
+        grid-area: p1h7;
+    }
+    .player3Hole8 {
+        grid-area: p1h8;
+    }
+    .player3Hole9 {
+        grid-area: p1h9;
+    }
+    .player3Hole10 {
+        grid-area: p1h10;
+    }
+    .player3Hole11 {
+        grid-area: p1h11;
+    }
+    .player3Hole12 {
+        grid-area: p1h12;
+    }
+    .player3Hole13 {
+        grid-area: p1h13;
+    }
+    .player3Hole14 {
+        grid-area: p1h14;
+    }
+    .player3Hole15 {
+        grid-area: p1h15;
+    }
+    .player3Hole16 {
+        grid-area: p1h16;
+    }
+    .player3Hole17 {
+        grid-area: p1h17;
+    }
+    .player3Hole18 {
+        grid-area: p1h18;
+    }
+
+    .player4Hole1 {
+        grid-area: p1h1;
+    }
+    .player4Hole2 {
+        grid-area: p1h2;
+    }
+    .player4Hole3 {
+        grid-area: p1h3;
+    }
+    .player4Hole4 {
+        grid-area: p1h4;
+    }
+    .player4Hole5 {
+        grid-area: p1h5;
+    }
+    .player4Hole6 {
+        grid-area: p1h6;
+    }
+    .player4Hole7 {
+        grid-area: p1h7;
+    }
+    .player4Hole8 {
+        grid-area: p1h8;
+    }
+    .player4Hole9 {
+        grid-area: p1h9;
+    }
+    .player4Hole10 {
+        grid-area: p1h10;
+    }
+    .player4Hole11 {
+        grid-area: p1h11;
+    }
+    .player4Hole12 {
+        grid-area: p1h12;
+    }
+    .player4Hole13 {
+        grid-area: p1h13;
+    }
+    .player4Hole14 {
+        grid-area: p1h14;
+    }
+    .player4Hole15 {
+        grid-area: p1h15;
+    }
+    .player4Hole16 {
+        grid-area: p1h16;
+    }
+    .player4Hole17 {
+        grid-area: p1h17;
+    }
+    .player4Hole18 {
+        grid-area: p1h18;
+    }
+
+    .yardsHole1 {
+        grid-area: yardsH1;
+    }
+    .yardsHole2 {
+        grid-area: yardsH2;
+    }
+    .yardsHole3 {
+        grid-area: yardsH3;
+    }
+    .yardsHole4 {
+        grid-area: yardsH4;
+    }
+    .yardsHole5 {
+        grid-area: yardsH5;
+    }
+    .yardsHole6 {
+        grid-area: yardsH6;
+    }
+    .yardsHole7 {
+        grid-area: yardsH7;
+    }
+    .yardsHole8 {
+        grid-area: yardsH8;
+    }
+    .yardsHole9 {
+        grid-area: yardsH9;
+    }
+    .yardsHole10 {
+        grid-area: yardsH10;
+    }
+    .yardsHole11 {
+        grid-area: yardsH11;
+    }
+    .yardsHole12 {
+        grid-area: yardsH12;
+    }
+    .yardsHole13 {
+        grid-area: yardsH13;
+    }
+    .yardsHole14 {
+        grid-area: yardsH14;
+    }
+    .yardsHole15 {
+        grid-area: yardsH15;
+    }
+    .yardsHole16 {
+        grid-area: yardsH16;
+    }
+    .yardsHole17 {
+        grid-area: yardsH17;
+    }
+    .yardsHole18 {
+        grid-area: yardsH18;
+    }
+
+    .gridInputs {
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+}

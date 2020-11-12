@@ -150,11 +150,12 @@ function startGame() {
             <div class='golfGrid'>
                 <div class='holesGrid'>Hole</div>
                 <div class='parGrid'>Par</div>
-                <div class='handcapGrid'>Handicap</div>
+                <div class='handicapGrid'>Handicap</div>
                 <div class='playerOne'>${Object.keys(savedData)[0]}</div>
                 <div class='playerTwo'>${Object.keys(savedData)[1]}</div>
                 <div class='playerThree'>${Object.keys(savedData)[2]}</div>
                 <div class='playerFour'>${Object.keys(savedData)[3]}</div>
+                <div class='yardsGrid'>Yards</div>
 
                 <div class='hole1'>1</div>
                 <div class='hole2'>2</div>
@@ -165,7 +166,12 @@ function startGame() {
                 <div class='hole7'>7</div>
                 <div class='hole8'>8</div>
                 <div class='hole9'>9</div>
+
                 <div class='outScore'>Out</div>
+                <div class='outScoreP1'></div>
+                <div class='outScoreP2'></div>
+                <div class='outScoreP3'></div>
+                <div class='outScoreP4'></div>
                 
                 <div class='hole10'>10</div>
                 <div class='hole11'>11</div>
@@ -176,8 +182,19 @@ function startGame() {
                 <div class='hole16'>16</div>
                 <div class='hole17'>17</div>
                 <div class='hole18'>18</div>
+
                 <div class='inScore'>In</div>
+                <div class='inScoreP1'></div>
+                <div class='inScoreP2'></div>
+                <div class='inScoreP3'></div>
+                <div class='inScoreP4'></div>
+
                 <div class='allTotals'>Total</div>
+                <div class='totalsP1'></div>
+                <div class='totalsP2'></div>
+                <div class='totalsP3'></div>
+                <div class='totalsP4'></div>
+                <div class='totalsYards'></div>
 
 
                 <div class='par1'>${singleCourse.data.holes[0].teeBoxes[0].par}</div>
@@ -304,6 +321,25 @@ function startGame() {
                 <input placeholder='placeholder' type='number' class='player4Hole16 gridInputs'>
                 <input placeholder='placeholder' type='number' class='player4Hole17 gridInputs'>
                 <input placeholder='placeholder' type='number' class='player4Hole18 gridInputs'>
+
+                <div class='yardsHole1'></div>
+                <div class='yardsHole2'></div>
+                <div class='yardsHole3'></div>
+                <div class='yardsHole4'></div>
+                <div class='yardsHole5'></div>
+                <div class='yardsHole6'></div>
+                <div class='yardsHole7'></div>
+                <div class='yardsHole8'></div>
+                <div class='yardsHole9'></div>
+                <div class='yardsHole10'></div>
+                <div class='yardsHole11'></div>
+                <div class='yardsHole12'></div>
+                <div class='yardsHole13'></div>
+                <div class='yardsHole14'></div>
+                <div class='yardsHole15'></div>
+                <div class='yardsHole16'></div>
+                <div class='yardsHole17'></div>
+                <div class='yardsHole18'></div>
             </div>
         </div>
     `)
