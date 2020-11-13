@@ -64,7 +64,7 @@ function addPlayers(event) {
             <div>${nameInput.value}</div>
         `)
     }
-    savedData[nameInput.value.toLowerCase()] = {};
+    savedData[nameInput.value.toLowerCase()] = {Name:nameInput.value};
     nameInput.value = '';
     // saveData();
 };
