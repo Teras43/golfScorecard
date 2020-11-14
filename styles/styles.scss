@@ -65,10 +65,13 @@ body {
         border-radius: 3px;
     }
 
+    // Inserted CSS
     .bottomSection {
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         align-items: center;
+        width: 100vw;
 
         .addPlayers{
             display: flex;
@@ -87,13 +90,44 @@ body {
     }
 }
 
-// Inserted CSS
 .bodyContainer2 {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 
-    .teeTypes {
+    .teeTypesContainer {
+        width: 100%;
+    }
+
+    .topSection {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .singleCourseImgContainer {
+            display: flex;
+            justify-content: center;
+            height: 150px;
+            width: 100vw;
+            margin-top: 15px;
+        }
+        
+        .singleCourseImg {
+            object-fit: fill;
+            height: 150px;
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        .teeTypesTop {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .teeTypesBottom {
+            display: flex;
+            justify-content: space-around;
+        }
     }
 }

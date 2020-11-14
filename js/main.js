@@ -45,39 +45,51 @@ xmlhttp2.onreadystatechange = () => {
                         <div class='header text-center'>Course Information</div>
                         <div>${singleCourse.data.name} ${singleCourse.data.city} ${singleCourse.data.stateOrProvince}</div>
                         <div>${singleCourse.data.holeCount} Holes</div>
+                        <div class='singleCourseImgContainer'>
+                          <img class='singleCourseImg' src='${singleCourse.data.thumbnail}'/>
+                        </div>
                         <br/>
                         <div class='teeTypesText'>Tee Types:</div>
-                        <div class='teeTypes'>
-                            <div class='proTee'>
-                                <div><button class='btn-xs btn-primary'>Pro</button> Yards: ${totalYardage.proTotal}</div>
-                            </div>
-                            <div class='champTee'>
-                                <div><button class='btn-xs btn-primary'>Champion</button> Yards: ${totalYardage.champTotal}</div>
-                            </div>
-                            <div class='menTee'>
-                                <div><button class='btn-xs btn-primary'>Men</button> Yards: ${totalYardage.menTotal}</div>
-                            </div>
-                            <div class='womenTee'>
-                                <div><button class='btn-xs btn-primary'>Women</button> Yards: ${totalYardage.womenTotal}</div>
-                            </div>
+                        <div class='teeTypesContainer'>
+                          <div class='teeTypesTop'>
+                              <div class='proTee'>
+                                  <div class='proTotalDiv'>Pro:</div> 
+                                  <div class='proTotalYd'>Yards - ${totalYardage.proTotal}</div>
+                              </div>
+                              <div class='champTee'>
+                                  <div class='champTotalDiv'>Champion:</div>
+                                  <div class'champTotalYd'>Yards - ${totalYardage.champTotal}</div>
+                              </div>
+                          </div>
+                          <br/>
+                          <div class='teeTypesBottom'>
+                              <div class='menTee'>
+                                  <div class='menTotalDiv'>Men:</div>
+                                  <div class='menTotalYd'>Yards - ${totalYardage.menTotal}</div>
+                              </div>
+                              <div class='womenTee'>
+                                  <div class='womenTotalDiv'>Women:</div>
+                                  <div class='womenTotalYd'>Yards - ${totalYardage.womenTotal}</div>
+                              </div>
+                          </div>
                         </div>
                     </div>
                     <br/>
                     <div class='bottomSection'>
-                    <div id='players' class='players'>
+                      <div id='players' class='players'>
                     
-                    </div>
-                    <div id='errorMsgName' class='text-danger'></div>
-                    <div class='addPlayers'>
-                            <div class='playerName'>
-                                <input id='nameInput' type='text' placeholder='Player Name' onkeydown='addPlayers(event)'/>
-                            </div>
-                            <div class='buttonDiv'>
-                                <button type='button' class='addPlayerBtn btn-sm btn-primary' onclick='addPlayers(event)'>
-                                    Add
-                                </button>
-                            </div>
+                      </div>
+                      <div id='errorMsgName' class='text-danger'></div>
+                      <div class='addPlayers'>
+                        <div class='playerName'>
+                          <input id='nameInput' type='text' placeholder='Player Name' onkeydown='addPlayers(event)'/>
                         </div>
+                        <div class='buttonDiv'>
+                          <button type='button' class='addPlayerBtn btn-sm btn-primary' onclick='addPlayers(event)'>
+                            Add
+                          </button>
+                        </div>
+                      </div>
                         <button type='button' class='startBtn btn-sm btn-primary' onclick='startGame()'>
                             Start!
                         </button>
@@ -94,18 +106,29 @@ xmlhttp2.onreadystatechange = () => {
                         <div class='header text-center'>Course Information</div>
                         <div>${singleCourse.data.name} ${singleCourse.data.city} ${singleCourse.data.stateOrProvince}</div>
                         <div>${singleCourse.data.holeCount} Holes</div>
+                        <div class='singleCourseImgContainer'>
+                          <img class='singleCourseImg' src='${singleCourse.data.thumbnail}'/>
+                        </div>
                         <br/>
                         <div class='teeTypesText'>Tee Types:</div>
-                        <div class='teeTypes'>
-                            <div class='champTee'>
-                                <div><button class='btn-xs btn-primary'>Champion</button> Yards: ${totalYardage.champTotal}</div>
-                            </div>
-                            <div class='menTee'>
-                                <div><button class='btn-xs btn-primary'>Men</button> Yards: ${totalYardage.menTotal}</div>
-                            </div>
-                            <div class='womenTee'>
-                                <div><button class='btn-xs btn-primary'>Women</button> Yards: ${totalYardage.womenTotal}</div>
-                            </div>
+                        <div class='teeTypesContainer'>
+                          <div class='teeTypesTop'>
+                              <div class='champTee'>
+                                  <div class='champTotalDiv'>Champion:</div>
+                                  <div class'champTotalYd'>Yards - ${totalYardage.champTotal}</div>
+                              </div>
+                          </div>
+                          <br/>
+                          <div class='teeTypesBottom'>
+                              <div class='menTee'>
+                                  <div class='menTotalDiv'>Men:</div>
+                                  <div class='menTotalYd'>Yards - ${totalYardage.menTotal}</div>
+                              </div>
+                              <div class='womenTee'>
+                                  <div class='womenTotalDiv'>Women:</div>
+                                  <div class='womenTotalYd'>Yards - ${totalYardage.womenTotal}</div>
+                              </div>
+                          </div>
                         </div>
                     </div>
                     <br/>
@@ -148,30 +171,28 @@ function startGame() {
     setTimeout(() => {
       document.getElementById("bodyContainer2").remove();
       let playerInputs = ``;
+      let playerNames = ``;
+      let outTotals = ``;
+      let inTotals = ``;
+      let playerTotals = ``;
       Object.keys(savedData).forEach((playerName, Index) => {
         for (let i = 1; i <= 18; i++) {
-          playerInputs += `<input type='tel' id='${
-            playerName + i
-          }' class='player${Index + 1}Hole${i} gridInputs'/>`;
+          playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs'/>`;
         }
-    });
-        let playerNames = ``;
-        Object.keys(savedData).forEach((playerName, Index) => {
-            for (let i = 0; i <= 3; i++) {
-                playerNames += `<div id='player${Index + 1}' class='player${Index + 1}'>${playerName}</div>`
-            }
-        });
+        for (let i = 0; i < Object.keys(savedData).length; i++) {
+          playerNames += `<div id='player${Index + 1}' class='player${Index + 1}'>${savedData[playerName].Name}</div>`
+          outTotals += `<div class='outScoreP${Index + 1}'></div>`
+          inTotals += `<div class='inScoreP${Index + 1}'></div>`
+          playerTotals += `<div class='totalsP${Index + 1}'></div>`
+        }
+      });
       bodyContainer.insertAdjacentHTML(
         "beforeend",
         `
         <div id='bodyContainer3'>
             <div class='teeChange'>
                 <div class='teeChangeTxt'>Change Tee?</div>
-                <select class='teeDropMenu'>
-                    <option class='proDropDown' value='pro'>Pro</option>
-                    <option class='champDropDown' value='champ'>Champion</option>
-                    <option class='menDropDown' value='men'>Men</option>
-                    <option class='womenDropDown' value='women'>Women</option>
+                <select id='teeDropMenu' class='teeDropMenu' onchange='getTeeYardage()'>
                 </select>
             </div>
             <div id='golfGrid' class='golfGrid'>
@@ -192,10 +213,7 @@ function startGame() {
                 <div class='hole9'>9</div>
 
                 <div class='outScore'>Out</div>
-                <div class='outScoreP1'></div>
-                <div class='outScoreP2'></div>
-                <div class='outScoreP3'></div>
-                <div class='outScoreP4'></div>
+                ${outTotals}
                 
                 <div class='hole10'>10</div>
                 <div class='hole11'>11</div>
@@ -208,16 +226,12 @@ function startGame() {
                 <div class='hole18'>18</div>
 
                 <div class='inScore'>In</div>
-                <div class='inScoreP1'></div>
-                <div class='inScoreP2'></div>
-                <div class='inScoreP3'></div>
-                <div class='inScoreP4'></div>
+                ${inTotals}
+
+                <div class='totalPar'></div>
 
                 <div class='allTotals'>Total</div>
-                <div class='totalsP1'></div>
-                <div class='totalsP2'></div>
-                <div class='totalsP3'></div>
-                <div class='totalsP4'></div>
+                ${playerTotals}
                 <div class='totalsYards'></div>
 
 
@@ -248,7 +262,7 @@ function startGame() {
                 <div class='par9'>${
                   singleCourse.data.holes[8].teeBoxes[0].par
                 }</div>
-
+                <div class='inPar'></div>
                 <div class='par10'>${
                   singleCourse.data.holes[9].teeBoxes[0].par
                 }</div>
@@ -276,6 +290,7 @@ function startGame() {
                 <div class='par18'>${
                   singleCourse.data.holes[17].teeBoxes[0].par
                 }</div>
+                <div class='outPar'></div>
 
 
                 <div class='handicap1'>${
@@ -345,7 +360,7 @@ function startGame() {
                 <div class='yardsHole7'></div>
                 <div class='yardsHole8'></div>
                 <div class='yardsHole9'></div>
-                <div class='yardsIn'></div>
+                <div class='yardsOut'></div>
                 <div class='yardsHole10'></div>
                 <div class='yardsHole11'></div>
                 <div class='yardsHole12'></div>
@@ -355,11 +370,38 @@ function startGame() {
                 <div class='yardsHole16'></div>
                 <div class='yardsHole17'></div>
                 <div class='yardsHole18'></div>
-                <div class='yardsOut'></div>
+                <div class='yardsIn'></div>
+
+                <div class='empty1'>Total</div>
+                <div class='empty2'>Out</div>
+                <div class='empty3'>In</div>
             </div>
         </div>
     `
       );
+      let dropMenuPro = ``;
+      let dropMenuNoPro = ``;
+      if (singleCourse.data.holes[0].teeBoxes[3] === undefined) {
+        dropMenuNoPro += 
+        `
+          <option class='champDropDown' value='champ'>Champion</option>
+          <option class='menDropDown' value='men'>Men</option>
+          <option class='womenDropDown' value='women'>Women</option>
+        `
+        $(`#teeDropMenu`).html(dropMenuNoPro);
+      } else {
+        dropMenuPro += 
+        `
+          <option class='proDropDown' value='pro'>Pro</option>
+          <option class='champDropDown' value='champ'>Champion</option>
+          <option class='menDropDown' value='men'>Men</option>
+          <option class='womenDropDown' value='women'>Women</option>
+        `
+        $(`#teeDropMenu`).html(dropMenuPro);
+      }
+      addPar();
+      addTeeYardage();
+      getTeeYardage();
       let golfGridId = document.getElementById("golfGrid");
         if (Object.keys(savedData).length === 2) {
             golfGridId.removeAttribute("golfGrid");

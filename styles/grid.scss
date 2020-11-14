@@ -13,7 +13,7 @@
         "hole7 par7 handicap7 p1h7 yardsH7"
         "hole8 par8 handicap8 p1h8 yardsH8"
         "hole9 par9 handicap9 p1h9 yardsH9"
-        "out out out outP1 yardsIn"
+        "out outPar e1 outP1 yardsOut"
         "hole10 par10 handicap10 p1h10 yardsH10"
         "hole11 par11 handicap11 p1h11 yardsH11"
         "hole12 par12 handicap12 p1h12 yardsH12"
@@ -23,8 +23,8 @@
         "hole16 par16 handicap16 p1h16 yardsH16"
         "hole17 par17 handicap17 p1h17 yardsH17"
         "hole18 par18 handicap18 p1h18 yardsH18"
-        "in in in inP1 yardsOut"
-        "total total total totalP1 totalYards";
+        "in inPar e2 inP1 yardsIn"
+        "total totalPar e3 totalP1 totalYards";
 }
 
 .golfGrid > * {
@@ -48,7 +48,7 @@
     "hole7 par7 handicap7 p1h7 p2h7 yardsH7"
     "hole8 par8 handicap8 p1h8 p2h8 yardsH8"
     "hole9 par9 handicap9 p1h9 p2h9 yardsH9"
-    "out out out outP1 outP2 yardsIn"
+    "out outPar . outP1 outP2 yardsOut"
     "hole10 par10 handicap10 p1h10 p2h10 yardsH10"
     "hole11 par11 handicap11 p1h11 p2h11 yardsH11"
     "hole12 par12 handicap12 p1h12 p2h12 yardsH12"
@@ -58,8 +58,8 @@
     "hole16 par16 handicap16 p1h16 p2h16 yardsH16"
     "hole17 par17 handicap17 p1h17 p2h17 yardsH17"
     "hole18 par18 handicap18 p1h18 p2h18 yardsH18"
-    "in in in inP1 inP2 yardsOut"
-    "total total total totalP1 totalP2 totalYards";
+    "in inPar . inP1 inP2 yardsIn"
+    "total totalPar . totalP1 totalP2 totalYards";
 }
 
 .golfGrid2 > * {
@@ -83,7 +83,7 @@
     "hole7 par7 handicap7 p1h7 p2h7 p3h7 yardsH7"
     "hole8 par8 handicap8 p1h8 p2h8 p3h8 yardsH8"
     "hole9 par9 handicap9 p1h9 p2h9 p3h9 yardsH9"
-    "out out out outP1 outP2 outP3 yardsIn"
+    "out outPar . outP1 outP2 outP3 yardsOut"
     "hole10 par10 handicap10 p1h10 p2h10 p3h10 yardsH10"
     "hole11 par11 handicap11 p1h11 p2h11 p3h11 yardsH11"
     "hole12 par12 handicap12 p1h12 p2h12 p3h12 yardsH12"
@@ -93,8 +93,8 @@
     "hole16 par16 handicap16 p1h16 p2h16 p3h16 yardsH16"
     "hole17 par17 handicap17 p1h17 p2h17 p3h17 yardsH17"
     "hole18 par18 handicap18 p1h18 p2h18 p3h18 yardsH18"
-    "in in in inP1 inP2 inP3 yardsOut"
-    "total total total totalP1 totalP2 totalP3 totalYards";
+    "in inPar . inP1 inP2 inP3 yardsIn"
+    "total totalPar . totalP1 totalP2 totalP3 totalYards";
 }
 
 .golfGrid3 > * {
@@ -118,7 +118,7 @@
     "hole7 par7 handicap7 p1h7 p2h7 p3h7 p4h7 yardsH7"
     "hole8 par8 handicap8 p1h8 p2h8 p3h8 p4h8 yardsH8"
     "hole9 par9 handicap9 p1h9 p2h9 p3h9 p4h9 yardsH9"
-    "out out out outP1 outP2 outP3 outP4 yardsIn"
+    "out outPar . outP1 outP2 outP3 outP4 yardsOut"
     "hole10 par10 handicap10 p1h10 p2h10 p3h10 p4h10 yardsH10"
     "hole11 par11 handicap11 p1h11 p2h11 p3h11 p4h11 yardsH11"
     "hole12 par12 handicap12 p1h12 p2h12 p3h12 p4h12 yardsH12"
@@ -128,8 +128,8 @@
     "hole16 par16 handicap16 p1h16 p2h16 p3h16 p4h16 yardsH16"
     "hole17 par17 handicap17 p1h17 p2h17 p3h17 p4h17 yardsH17"
     "hole18 par18 handicap18 p1h18 p2h18 p3h18 p4h18 yardsH18"
-    "in in in inP1 inP2 inP3 inP4 yardsOut"
-    "total total total totalP1 totalP2 totalP3 totalP4 totalYards";
+    "in inPar . inP1 inP2 inP3 inP4 yardsIn"
+    "total totalPar . totalP1 totalP2 totalP3 totalP4 totalYards";
 }
 
 .golfGrid4 > * {
@@ -204,15 +204,23 @@
 }
 .outScoreP1 {
     grid-area: outP1;
+    width: 80px;
 }
 .outScoreP2 {
     grid-area: outP2;
+    width: 80px;
 }
 .outScoreP3 {
     grid-area: outP3;
+    width: 80px;
 }
 .outScoreP4 {
     grid-area: outP4;
+    width: 80px;
+}
+
+.outPar {
+    grid-area: outPar;
 }
 
 .hole10 {
@@ -248,15 +256,23 @@
 }
 .inScoreP1 {
     grid-area: inP1;
+    width: 80px;
 }
 .inScoreP2 {
     grid-area: inP2;
+    width: 80px;
 }
 .inScoreP3 {
     grid-area: inP3;
+    width: 80px;
 }
 .inScoreP4 {
     grid-area: inP4;
+    width: 80px;
+}
+
+.inPar {
+    grid-area: inPar;
 }
 
 .allTotals {
@@ -264,15 +280,22 @@
 }
 .totalsP1 {
     grid-area: totalP1;
+    width: 80px;
 }
 .totalsP2 {
     grid-area: totalP2;
+    width: 80px;
 }
 .totalsP3 {
     grid-area: totalP3;
+    width: 80px;
 }
 .totalsP4 {
     grid-area: totalP4;
+    width: 80px;
+}
+.totalPar {
+    grid-area: totalPar;
 }
 .totalsYards {
     grid-area: totalYards;
@@ -667,6 +690,16 @@
 }
 .yardsOut {
     grid-area: yardsOut;
+}
+
+.empty1 {
+    grid-area: e1;
+}
+.empty1 {
+    grid-area: e2;
+}
+.empty1 {
+    grid-area: e3;
 }
 
 .gridInputs {
