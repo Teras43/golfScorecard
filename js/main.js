@@ -76,6 +76,7 @@ xmlhttp2.onreadystatechange = () => {
                     </div>
                     <br/>
                     <div class='bottomSection'>
+                      <div class='playerList'>Player List</div>
                       <div id='players' class='players'>
                     
                       </div>
@@ -133,19 +134,20 @@ xmlhttp2.onreadystatechange = () => {
                     </div>
                     <br/>
                     <div class='bottomSection'>
-                    <div id='players' class='players'>
+                      <div class='playerList'>Player List</div>
+                      <div id='players' class='players'>
                     
-                    </div>
-                    <div class='addPlayers'>
-                            <div class='playerName'>
-                                <input id='nameInput' type='text' placeholder='Player Name' onkeydown='addPlayers(event)'/>
-                            </div>
-                            <div class='buttonDiv'>
-                                <button type='button' class='addPlayerBtn btn-sm btn-primary' onclick='addPlayers(event)'>
-                                    Add
-                                </button>
-                            </div>
+                      </div>
+                      <div class='addPlayers'>
+                        <div class='playerName'>
+                          <input id='nameInput' type='text' placeholder='Player Name' onkeydown='addPlayers(event)'/>
                         </div>
+                        <div class='buttonDiv'>
+                          <button type='button' class='addPlayerBtn btn-sm btn-primary' onclick='addPlayers(event)'>
+                            Add
+                          </button>
+                        </div>
+                      </div>
                         <button type='button' class='startBtn btn-sm btn-primary' onclick='startGame()'>
                             Start!
                         </button>
@@ -177,14 +179,12 @@ function startGame() {
       let playerTotals = ``;
       Object.keys(savedData).forEach((playerName, Index) => {
         for (let i = 1; i <= 18; i++) {
-          playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs'/>`;
+          playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs' onkeydown='keydown(event)' onblur='getPlayerScore()'/>`;
         }
-        for (let i = 0; i < Object.keys(savedData).length; i++) {
           playerNames += `<div id='player${Index + 1}' class='player${Index + 1}'>${savedData[playerName].Name}</div>`
-          outTotals += `<div class='outScoreP${Index + 1}'></div>`
-          inTotals += `<div class='inScoreP${Index + 1}'></div>`
-          playerTotals += `<div class='totalsP${Index + 1}'></div>`
-        }
+          outTotals += `<div id='${playerName}Out' class='outScoreP${Index + 1}'>0</div>`
+          inTotals += `<div id='${playerName}In' class='inScoreP${Index + 1}'>0</div>`
+          playerTotals += `<div id='${playerName}Total'class='totalsP${Index + 1}'>0</div>`
       });
       bodyContainer.insertAdjacentHTML(
         "beforeend",
@@ -376,6 +376,10 @@ function startGame() {
                 <div class='empty2'>Out</div>
                 <div class='empty3'>In</div>
             </div>
+            <div id='player1Complete'></div>
+            <div id='player2Complete'></div>
+            <div id='player3Complete'></div>
+            <div id='player4Complete'></div>
         </div>
     `
       );
