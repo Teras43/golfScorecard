@@ -34,7 +34,6 @@ let xmlhttp2 = new XMLHttpRequest();
 xmlhttp2.onreadystatechange = () => {
   if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
     singleCourse = JSON.parse(xmlhttp2.responseText);
-    console.log(singleCourse);
     const totalYardage = addTeeYardage();
     if (totalYardage.proTotal !== 0) {
       bodyContainer.insertAdjacentHTML(
@@ -177,6 +176,7 @@ function startGame() {
       let outTotals = ``;
       let inTotals = ``;
       let playerTotals = ``;
+      let playerNameComplete = ``;
       Object.keys(savedData).forEach((playerName, Index) => {
         for (let i = 1; i <= 18; i++) {
           playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs' onkeydown='keydown(event)' onblur='getPlayerScore()'/>`;
@@ -185,6 +185,7 @@ function startGame() {
           outTotals += `<div id='${playerName}Out' class='outScoreP${Index + 1}'>0</div>`
           inTotals += `<div id='${playerName}In' class='inScoreP${Index + 1}'>0</div>`
           playerTotals += `<div id='${playerName}Total'class='totalsP${Index + 1}'>0</div>`
+          playerNameComplete += `<div id='${playerName}Complete'></div>`
       });
       bodyContainer.insertAdjacentHTML(
         "beforeend",
@@ -376,10 +377,7 @@ function startGame() {
                 <div class='empty2'>Out</div>
                 <div class='empty3'>In</div>
             </div>
-            <div id='player1Complete'></div>
-            <div id='player2Complete'></div>
-            <div id='player3Complete'></div>
-            <div id='player4Complete'></div>
+            ${playerNameComplete}
         </div>
     `
       );

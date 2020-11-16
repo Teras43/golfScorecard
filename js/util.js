@@ -1,3 +1,7 @@
+let totalPar = 0;
+let outPar = 0;
+let inPar = 0;
+
 function getPlayerScore() {
   let playerIds;
   let idGrab;
@@ -5,18 +9,15 @@ function getPlayerScore() {
     let outScore = 0;
     let inScore = 0;
     let totalScore = 0;
-    let outScoreTotal = document.getElementById(
-      `${playerName}Out`
-    );
+    let playerIsComplete = true;
+    let outScoreTotal = document.getElementById(`${playerName}Out`);
     let inScoreTotal = document.getElementById(`${playerName}In`);
-    let playerTotalScore = document.getElementById(
-      `${playerName}Total`
-    );
+    let playerTotalScore = document.getElementById(`${playerName}Total`);
     for (let i = 1; i <= 18; i++) {
       playerIds = playerName + i;
       idGrab = document.getElementById(`${playerIds}`);
-      if (+idGrab.value === "" || +idGrab.value === undefined) {
-        +idGrab.value == +idGrab.value || 0;
+      if (idGrab.value === '') {
+        playerIsComplete = false;
       }
       if (i <= 9) {
         outScore += +idGrab.value;
@@ -26,9 +27,22 @@ function getPlayerScore() {
       }
     }
     $(outScoreTotal).html(outScore);
-    $(inScoreTotal).text(inScore);
+    $(inScoreTotal).html(inScore);
     totalScore += outScore + inScore;
-    $(playerTotalScore).text(totalScore);
+    $(playerTotalScore).html(totalScore);
+    if (playerIsComplete) {
+        const playerExitMsg = $(`#${playerName}Complete`);
+        const comparisonScorePar = totalScore - totalPar;
+        if (comparisonScorePar > 0) {
+            playerExitMsg.css('color', 'red');
+            playerExitMsg.css('text-align', 'center');
+            playerExitMsg.html(`${savedData[playerName].Name}: +${comparisonScorePar}, you should get more practice!`)
+        } else {
+            playerExitMsg.css('color', 'green');
+            playerExitMsg.css('text-align', 'center');
+            playerExitMsg.html(`${savedData[playerName].Name}: ${comparisonScorePar}, time to go pro!`)
+        }
+    }
   });
 }
 
@@ -159,9 +173,6 @@ function addTeeYardage() {
 }
 
 function addPar() {
-  let outPar = 0;
-  let inPar = 0;
-  let totalPar = 0;
   singleCourse.data.holes.forEach((val, i) => {
     if (i < 9) {
       outPar += val.teeBoxes[0].par;
