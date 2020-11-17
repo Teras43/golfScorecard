@@ -9,7 +9,7 @@ html, body {
 }
 
 .pageContainer {
-    height: 100vh;
+    height: 100%;
 }
 
 .container-fluid {
@@ -19,13 +19,11 @@ html, body {
 
 
 .topContainer {
-    display: flex;
     background-color: #357266;
 }
 
 .header {
     font-size: 32px;
-    width: 100vw;
 }
 
 .bodyContainer {
@@ -38,17 +36,22 @@ html, body {
         font-size: 22px;
         padding-top: 25px;
         margin-bottom: 15px;
-        margin-left: 88px;
+        margin-left: 72px;
         text-decoration: underline;
     }
     
     .courses {
         display: flex;
+        height: 100%;
         flex-direction: row;
         align-items: flex-start;
         margin: 0;
         font-size: 20px;
         text-align: center;
+        @media only screen and (min-width: 576px) {
+            justify-content: center;
+            align-items: center;
+        }
 
         .courseTxt {
             font-style: italic;
@@ -136,6 +139,11 @@ html, body {
     }
 
     .playerList {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
+        text-decoration: underline;
     }
+}
+
+.teeChange {
+    margin-top: 10px;
 }

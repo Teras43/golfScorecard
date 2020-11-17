@@ -35,6 +35,7 @@ xmlhttp2.onreadystatechange = () => {
   if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
     singleCourse = JSON.parse(xmlhttp2.responseText);
     const totalYardage = addTeeYardage();
+    console.log(singleCourse);
     if (totalYardage.proTotal !== 0) {
       bodyContainer.insertAdjacentHTML(
         "beforeend",
@@ -43,6 +44,8 @@ xmlhttp2.onreadystatechange = () => {
                     <div class='topSection'>
                         <div class='header text-center'>Course Information</div>
                         <div>${singleCourse.data.name} ${singleCourse.data.city} ${singleCourse.data.stateOrProvince}</div>
+                        <div>${singleCourse.data.addr1}</div>
+                        <div>${singleCourse.data.phone}</div>
                         <div>${singleCourse.data.holeCount} Holes</div>
                         <div class='singleCourseImgContainer'>
                           <img class='singleCourseImg' src='${singleCourse.data.thumbnail}'/>
@@ -105,6 +108,8 @@ xmlhttp2.onreadystatechange = () => {
                     <div class='topSection'>
                         <div class='header text-center'>Course Information</div>
                         <div>${singleCourse.data.name} ${singleCourse.data.city} ${singleCourse.data.stateOrProvince}</div>
+                        <div>${singleCourse.data.addr1}</div>
+                        <div>${singleCourse.data.phone}</div>
                         <div>${singleCourse.data.holeCount} Holes</div>
                         <div class='singleCourseImgContainer'>
                           <img class='singleCourseImg' src='${singleCourse.data.thumbnail}'/>
@@ -180,6 +185,9 @@ function startGame() {
       Object.keys(savedData).forEach((playerName, Index) => {
         for (let i = 1; i <= 18; i++) {
           playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs' onkeydown='keydown(event)' onblur='getPlayerScore()'/>`;
+          // if (Index === 0 || Index === 2) {
+          //   $(`#${playerName + i}`).css('background-color', 'lightgray');
+          // }
         }
           playerNames += `<div id='player${Index + 1}' class='player${Index + 1}'>${savedData[playerName].Name}</div>`
           outTotals += `<div id='${playerName}Out' class='outScoreP${Index + 1}'>0</div>`

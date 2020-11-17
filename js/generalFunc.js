@@ -61,7 +61,7 @@ function addPlayers(event) {
         return
     } else {
         playerNames.insertAdjacentHTML('beforeend', `
-            <div>${nameInput.value}</div>
+            <div class='insertedPlayers'>${nameInput.value}</div>
         `)
     }
     savedData[nameInput.value.toLowerCase()] = {Name:nameInput.value};
