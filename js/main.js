@@ -3,8 +3,8 @@
 let golfAPI = "https://golf-courses-api.herokuapp.com/courses";
 let allCourses;
 let singleCourse;
-const courseContainer = document.getElementById("courseContainer");
-const bodyContainer = document.getElementById("bodyContainer");
+const courseContainer = document.getElementById("courseArea")
+const pageContainer = document.getElementById("pageContainer");
 let savedData = {};
 
 // XMLHttpRequests & HTML Inserts
@@ -37,7 +37,7 @@ xmlhttp2.onreadystatechange = () => {
     const totalYardage = addTeeYardage();
     console.log(singleCourse);
     if (totalYardage.proTotal !== 0) {
-      bodyContainer.insertAdjacentHTML(
+      pageContainer.insertAdjacentHTML(
         "beforeend",
         `
                 <div id='bodyContainer2' class='bodyContainer2'>
@@ -101,7 +101,7 @@ xmlhttp2.onreadystatechange = () => {
             `
       );
     } else {
-      bodyContainer.insertAdjacentHTML(
+      pageContainer.insertAdjacentHTML(
         "beforeend",
         `
                 <div id='bodyContainer2' class='bodyContainer2'>
@@ -185,9 +185,6 @@ function startGame() {
       Object.keys(savedData).forEach((playerName, Index) => {
         for (let i = 1; i <= 18; i++) {
           playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs' onkeydown='keydown(event)' onblur='getPlayerScore()'/>`;
-          // if (Index === 0 || Index === 2) {
-          //   $(`#${playerName + i}`).css('background-color', 'lightgray');
-          // }
         }
           playerNames += `<div id='player${Index + 1}' class='player${Index + 1}'>${savedData[playerName].Name}</div>`
           outTotals += `<div id='${playerName}Out' class='outScoreP${Index + 1}'>0</div>`
@@ -195,7 +192,7 @@ function startGame() {
           playerTotals += `<div id='${playerName}Total'class='totalsP${Index + 1}'>0</div>`
           playerNameComplete += `<div id='${playerName}Complete'></div>`
       });
-      bodyContainer.insertAdjacentHTML(
+      pageContainer.insertAdjacentHTML(
         "beforeend",
         `
         <div id='bodyContainer3'>

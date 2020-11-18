@@ -1,16 +1,3 @@
-function saveData() {
-    localStorage.setItem('savedData', JSON.stringify(savedData));
-};
-
-function loadData() {
-    const loadedData = localStorage.getItem('savedData')
-    if (loadedData) {
-        JSON.parse(loadedData);
-    } else {
-        return;
-    }
-};
-
 const animateAwayProperties = {
     marginTop: '125%',
     opacity: 0
@@ -18,6 +5,8 @@ const animateAwayProperties = {
 
 function selectCourse(id) {
     let selectedCourse = document.getElementById(id);
+    let bodyContain = document.getElementById('bodyContainer');
+    let courseContainGrab = document.getElementById('courseContainer');
     let topText = document.getElementById('chooseCourseTxt');
     [...document.getElementsByClassName('active')].forEach(element => {
         element.classList.remove('active');
@@ -29,12 +18,13 @@ function selectCourse(id) {
     setTimeout(() => {
         selectedCourse.parentNode.remove();
         topText.remove();
+        courseContainGrab.remove();
+        bodyContain.remove();
     }, 800);
     
     xmlhttp2.open("GET", golfAPI + '/' + id, true);
     xmlhttp2.setRequestHeader('ContentType', 'application/json');
     xmlhttp2.send();
-    // loadData();
 };
 
 function addPlayers(event) {
@@ -66,5 +56,4 @@ function addPlayers(event) {
     }
     savedData[nameInput.value.toLowerCase()] = {Name:nameInput.value};
     nameInput.value = '';
-    // saveData();
 };
