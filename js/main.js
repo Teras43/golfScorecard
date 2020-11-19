@@ -35,7 +35,6 @@ xmlhttp2.onreadystatechange = () => {
   if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
     singleCourse = JSON.parse(xmlhttp2.responseText);
     const totalYardage = addTeeYardage();
-    console.log(singleCourse);
     if (totalYardage.proTotal !== 0) {
       pageContainer.insertAdjacentHTML(
         "beforeend",
@@ -183,13 +182,14 @@ function startGame() {
       let playerTotals = ``;
       let playerNameComplete = ``;
       Object.keys(savedData).forEach((playerName, Index) => {
+        let isEven = (Index + 1) % 2 === 0 ? true: false;
         for (let i = 1; i <= 18; i++) {
-          playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs' onkeydown='keydown(event)' onblur='getPlayerScore()'/>`;
+          playerInputs += `<input type='number' min='0' id='${playerName + i}' class='player${Index + 1}Hole${i} gridInputs ${!isEven ? 'darkerColor': null}' onkeydown='keydown(event)' onblur='getPlayerScore()'/>`;
         }
-          playerNames += `<div id='player${Index + 1}' class='player${Index + 1}'>${savedData[playerName].Name}</div>`
-          outTotals += `<div id='${playerName}Out' class='outScoreP${Index + 1}'>0</div>`
-          inTotals += `<div id='${playerName}In' class='inScoreP${Index + 1}'>0</div>`
-          playerTotals += `<div id='${playerName}Total'class='totalsP${Index + 1}'>0</div>`
+          playerNames += `<div id='player${Index + 1}' class='player${Index + 1} ${!isEven ? 'darkerColor': null}'>${savedData[playerName].Name}</div>`
+          outTotals += `<div id='${playerName}Out' class='outScoreP${Index + 1} ${!isEven ? 'darkerColor': null}'>0</div>`
+          inTotals += `<div id='${playerName}In' class='inScoreP${Index + 1} ${!isEven ? 'darkerColor': null}'>0</div>`
+          playerTotals += `<div id='${playerName}Total'class='totalsP${Index + 1} ${!isEven ? 'darkerColor': null}'>0</div>`
           playerNameComplete += `<div id='${playerName}Complete'></div>`
       });
       pageContainer.insertAdjacentHTML(

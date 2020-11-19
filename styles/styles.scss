@@ -1,5 +1,8 @@
 @import 'grid';
 
+$topBannerColor: #357266;
+$backgroundColor: #FCF7FF;
+
 html, body {
     height: 100vh;
     width: 100vw;
@@ -20,7 +23,8 @@ html, body {
 
 
 .topContainer {
-    background-color: #357266;
+    height: 12%;
+    background-color: $topBannerColor;
 }
 
 .header {
@@ -30,7 +34,8 @@ html, body {
 .bodyContainer {
     display: flex;
     flex-direction: column;
-    background-color: #FCF7FF;
+    height: 88%;
+    background-color: $backgroundColor;
 
     .bodyTopText {
         font-size: 22px;
@@ -50,7 +55,6 @@ html, body {
         #courseArea {
             display: flex;
             flex-direction: column;
-            height: 635px;
             width: 100%;
             justify-content: space-around;
             @media only screen and (min-width: 576px) {
@@ -84,17 +88,21 @@ html, body {
         border-radius: 3px;
     }
 
+    .courseNode {
+        margin-bottom: 15px;
+    }
+
     
 }
 
 // Inserted CSS
 .bodyContainer2 {
     display: flex;
-    height: 715px;
+    height: 88%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: #FCF7FF;
+    background-color: $backgroundColor;
     @media only screen and (min-width: 576px) {
         height: 918px;
     }
@@ -121,6 +129,10 @@ html, body {
             height: 150px;
             width: 300px;
             border: 1px solid black;
+            @media only screen and (min-width: 576px) {
+                height: 170px;
+                width: 400px;
+            }
         }
 
         .teeTypesTop {
@@ -168,6 +180,11 @@ html, body {
 }
 
 #bodyContainer3 {
-    height: 775px;
-    background-color: #FCF7FF;
+    height: 88%;
+    background-color: $backgroundColor;
+    overflow: scroll;
+}
+
+.darkerColor {
+    background-color: lighten(lightgray, 10%);
 }
