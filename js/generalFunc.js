@@ -8,10 +8,6 @@ function selectCourse(id) {
     let bodyContain = document.getElementById('bodyContainer');
     let courseContainGrab = document.getElementById('courseContainer');
     let topText = document.getElementById('chooseCourseTxt');
-    [...document.getElementsByClassName('active')].forEach(element => {
-        element.classList.remove('active');
-    });
-    selectedCourse.classList.add('active');
     const pageBody = selectedCourse.parentNode.parentNode;
     pageBody.animate(animateAwayProperties, 800);
     selectedCourse.classList.remove('active');
